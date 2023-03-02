@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Product from '../components/Product';
+import Iphones from './Iphones';
+
 /**
  * COMPONENT
  */
@@ -10,7 +11,7 @@ const Home = (props) => {
   return (
     <div>
       <h3>Welcome, {username}</h3>
-      <Product />
+      <Iphones />
     </div>
   );
 };

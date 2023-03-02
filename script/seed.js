@@ -3,7 +3,9 @@ const {
   db,
   models: { User },
 } = require("../server/db");
-const  Product  = require("../server/db/models/Product");
+
+const Iphone = require('../server/db/models/Iphone')
+
 
 /**
  * seed - this function clears the database, updates tables to
@@ -19,28 +21,32 @@ async function seed() {
     User.create({ username: "murphy", password: "123" }),
   ]);
 
-  const products = await Promise.all([
-    Product.create({
-      name: "iphoneX",
+  const Iphones = await Promise.all([
+    Iphone.create({
+      brand: "apple",
+      model: 'iphone5' ,
       price: "50",
       description: "black, touch screen, wifi",
-      imageURL: "",
+      imageURL: "yo",
     }),
-    Product.create({
-      name: "iphone15",
+    Iphone.create({
+      brand: "apple",
+      model: 'Iphone 12',
       price: "50",
       description: "black, touch screen, wifi",
-      imageURL: "",
+      imageURL: "yo",
     }),
-    Product.create({
-      name: "pixel",
+    Iphone.create({
+      brand: "apple",
+      model: 'iphoneX',
       price: "50",
       description: "black, touch screen, wifi",
-      imageURL: "",
+      imageURL: "yo",
     }),
   ]);
 
   console.log(`seeded ${users.length} users`);
+  console.log(`seeded ${Iphones.length} users`);
   console.log(`seeded successfully`);
   return {
     users: {

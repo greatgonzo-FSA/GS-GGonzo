@@ -1,8 +1,17 @@
 const Sequelize = require('sequelize')
 const db = require("../db");
 
-const Product = db.define("product", {
-  name: {
+const Iphone = db.define("iphone", {
+
+  brand: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
+
+  model: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
@@ -29,4 +38,4 @@ const Product = db.define("product", {
   },
 });
 
-module.exports = Product
+module.exports = Iphone
