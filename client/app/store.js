@@ -5,7 +5,8 @@ import authReducer from '../slices/loginSlice';
 import singleIphoneSlice from '../slices/singleIphoneSlice';
 import allAndroidsSlice from '../slices/androidSlice';
 import singleAndroidSlice from '../slices/singleAndroidSlice'
-
+import allRetroSlice from '../slices/retroSlice'
+import singleRetroSlice from '../slices/singleRetroSlice';
 
 
 
@@ -13,13 +14,14 @@ const store = configureStore({
   reducer: { 
     auth: authReducer, 
     allIphones: allIphonesSlice,
-    singleIphone: singleIphoneSlice
+    singleIphone: singleIphoneSlice,
     allAndroids: allAndroidsSlice,
     singleAndroid: singleAndroidSlice,
+    allRetro: allRetroSlice,
+    singleRetro: singleRetroSlice,
    },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
   
 });
 
-export default store;
-export * from '../slices/loginSlice';
+export default store; export * from '../slices/loginSlice';
