@@ -1,10 +1,10 @@
 const router = require("express").Router();
-const { models: { Product }} = require('../db') 
+const { models: { Iphone }} = require('../db') 
 
 router.get("/", async (req, res, next) => {
   try {
-    const products = await Product.findAll();
-    res.json(products);
+    const iphones = await Iphone.findAll();
+    res.json(iphones);
   } catch (err) {
     next(err);
   }
@@ -12,8 +12,8 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    const productId = await Product.findByPk(req.params.id);
-    res.json(productId);
+    const iphoneId = await Iphone.findByPk(req.params.id);
+    res.json(iphoneId);
   } catch (err) {
     next(err);
   }
