@@ -3,6 +3,7 @@ const {
   db,
   models: { User },
 } = require("../server/db");
+const Iphone = require('../server/db/models/Iphone')
 const Android = require('../server/db/models/Android')
 
 /**
@@ -19,6 +20,28 @@ async function seed() {
     User.create({ username: "murphy", password: "123" }),
   ]);
 
+  const Iphones = await Promise.all([
+    Iphone.create({
+      brand: "apple",
+      model: 'iphone5' ,
+      price: "50",
+      description: "black, touch screen, wifi",
+      imageURL: "yo",
+    }),
+    Iphone.create({
+      brand: "apple",
+      model: 'Iphone 12',
+      price: "50",
+      description: "black, touch screen, wifi",
+      imageURL: "yo",
+    }),
+    Iphone.create({
+      brand: "apple",
+      model: 'iphoneX',
+      price: "50",
+      description: "black, touch screen, wifi",
+      imageURL: "yo",
+    }),
   const androids = await Promise.all([
       Android.create({
         brand: 'Samsung',
@@ -44,6 +67,7 @@ async function seed() {
   ]);
 
   console.log(`seeded ${users.length} users`);
+  console.log(`seeded ${Iphones.length} users`);
   console.log(`seeded successfully`);
   return {
     users: {
