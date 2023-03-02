@@ -18,7 +18,7 @@ module.exports = {
     User,
     Product,
     Cart,
-    CartItem
+    CartItem,
     Iphone,
     Android,
     Retro
