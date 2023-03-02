@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Iphones from './Iphones';
+import Android from './Android';
 
 /**
  * COMPONENT
@@ -12,6 +13,7 @@ const Home = (props) => {
     <div>
       <h3>Welcome, {username}</h3>
       <Iphones />
+      <Android />
     </div>
   );
 };
