@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRetro, singleRetro, selectRetro } from "../slices/retroSlice";
+import { fetchRetroAsync, selectRetro } from "../slices/retroSlice";
 
 const Retro = () => {
   const dispatch = useDispatch();
   const retros = useSelector(selectRetro);
-  const [selectedRetroId, setSelectedRetroId] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchRetro());
+    dispatch(fetchRetroAsync());
   }, [dispatch]);
 
-  const allRetros = retros.map((retro) => (
-    <div key={retro.id}>
-      <h2>{retro.brand}</h2>
-      <p>{retro.model}</p>
-      <p>{retro.price}</p>
-    </div>
-  ));
-
-  useEffect(() => {
-    if(selectedRetroId){
-        dispatch(singleRetro(selectedRetroId))
-    }
-  }, [selectedRetroId, dispatch]);
+  console.log(retros)
 
   return (
- <div>
- <h1> All retro phones</h1>
- {allRetros}
-</div>
+    <div id="container" className="row">
+      <div id="allRetros" className="column">
+        {retros && retros.length
+          ? retros.map((retro) => (
+              <div
+                className="list-item row"
+                key={`All Retro: ${retro.id}`}
+              >
+                <h1>{retro.model}</h1>
+              </div>
+            ))
+          : null}
+      </div>
+    </div>
   );
 };
 

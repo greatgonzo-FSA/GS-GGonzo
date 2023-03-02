@@ -23,6 +23,13 @@ const Retro = db.define("retro", {
       notEmpty: true,
     },
   },
+  description: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
+  },
   imageURL: {
     type: Sequelize.STRING,
     defaultValue:

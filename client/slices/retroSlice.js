@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchRetro = createAsyncThunk("retro", async () => {
+export const fetchRetroAsync = createAsyncThunk("allRetro", async () => {
   try {
     let { data } = await axios.get("http://localhost:8080/api/retro");
     return data;
@@ -10,27 +10,18 @@ export const fetchRetro = createAsyncThunk("retro", async () => {
   }
 });
 
-export const singleRetro = createAsyncThunk("singleRetro", async () => {
-    try {
-        let { data } = await axios.get("http://localhost:8080/api/:id");
-        return data;
-    } catch (error) {
-        next(error);
-    }
-})
-
 const allRetro = createSlice({
-  name: "retro",
+  name: "allRetro",
   initialState: [],
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(fetchRetro.fulfilled, (state, action) => {
+    builder.addCase(fetchRetroAsync.fulfilled, (state, action) => {
       return action.payload;
     });
   },
 });
 
 export const selectRetro = (state) => {
-  return state.retro;
+  return state.allRetro;
 };
 export default allRetro.reducer;
