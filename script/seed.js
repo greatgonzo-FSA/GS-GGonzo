@@ -4,10 +4,8 @@ const {
   db,
   models: { User },
 } = require("../server/db");
-const Iphone = require('../server/db/models/Iphone');
-const Android = require('../server/db/models/Android');
-const { db, models: { User },} = require("../server/db");
-const Retro = require('../server/db/models/Retro');
+const Product = require('../server/db/models/Product');
+
 
 
 /**
@@ -25,68 +23,70 @@ async function seed() {
   ]);
 
 
-  const Iphones = await Promise.all([
-    Iphone.create({
+  const iphones = await Promise.all([
+    Product.create({
       brand: "apple",
       model: 'iphone5' ,
       price: "50",
-      description: "black, touch screen, wifi",
-      imageURL: "yo",
+      description: "simple description to be input here about Google",
+      imageURL: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone-12-pro-graphite-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1635202842000",
     }),
-    Iphone.create({
+    Product.create({
       brand: "apple",
       model: 'Iphone 12',
       price: "50",
-      description: "black, touch screen, wifi",
-      imageURL: "yo",
+      description: "simple description to be input here about Google",
+      imageURL: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone-12-pro-graphite-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1635202842000",
     }),
-    Iphone.create({
+    Product.create({
       brand: "apple",
       model: 'iphoneX',
       price: "50",
-      description: "black, touch screen, wifi",
-      imageURL: "yo",
-
+      description: "simple description to be input here about Google",
+      imageURL: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-iphone-12-pro-graphite-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1635202842000",
+    })
+  ])
   //create retro 
   const retro = await Promise.all([
-    Retro.create({
-      brand: "Motorola", 
+    Product.create({
+      brand: "modela", 
       model: "RAZR V3",
       price: "39",
-      description: "..",
+      description: "simple description to be input here about Google",
       imageURL: "https://www.cnet.com/a/img/resize/994f3af7074e239d021cf2c565c4c00d26ac1f66/hub/2018/03/13/3b3668c7-bc16-42a5-84e1-dad42bb9db2b/motorola-razr-v3-8768.jpg?auto=webp&fit=crop&height=675&width=1200",
     }),
-    Retro.create({
+    Product.create({
       brand: "Nokia", 
       model: "5110",
       price: "23",
-      description: "..",
+      description: "simple description to be input here about Google",
       imageURL: "https://fdn2.gsmarena.com/vv/pics/nokia/no5110_00.jpg",
     }),
-    Retro.create({
+    Product.create({
       brand: "Blackberry", 
       model: "6230",
       price: "99",    
-      description: "..",
+      description: "simple description to be input here about Google",
       imageURL: "https://media.wired.co.uk/photos/606db9be85fac47146cccb24/master/w_1920%2Cc_limit/gallery-6230-3.jpg",
 
     }),
+  ])
   const androids = await Promise.all([
-      Android.create({
+      Product.create({
         brand: 'Samsung',
         model: 'Galaxy S23 Ultra',
         price: '1380',
         description: 'simple description to be input here about Samsung',
         imageURL: 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo-2008.png',
       }),
-      Android.create({
+      Product.create({
         brand: 'Google',
         model: 'Pixel 7 Pro',
         price: '900',
         description: 'simple description to be input here about Google',
         imageURL: 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo-2008.png',
       }),
-      Android.create({
+      Product.create({
         brand: 'BBK Electronics',
         model: 'OnePlus 11',
         price: '700',
@@ -100,7 +100,9 @@ async function seed() {
 
 
   console.log(`seeded ${users.length} users`);
-  console.log(`seeded ${Iphones.length} users`);
+  console.log(`seeded ${iphones.length} iphones`);
+  console.log(`seeded ${androids.length} androids`);
+  console.log(`seeded ${retro.length} retro phones`);
   console.log(`seeded successfully`);
   return {
     users: {
