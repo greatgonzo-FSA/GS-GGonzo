@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectSingleProduct, fetchSingleProductAsync  } from "../slices/singleIphoneSlice";
+import { selectSingleProduct, fetchSingleProductAsync  } from "../slices/singleProductSlice";
 
 const SingleProduct = () => {
 
@@ -21,4 +21,4 @@ const SingleProduct = () => {
     )
 }
 
-export default SingleIphone
+export default SingleProduct
