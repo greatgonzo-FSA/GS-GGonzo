@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Products from './Products';
 import Navbar from './Navbar';
-
+import Retro from './Retro'
 
 /**
  * COMPONENT
@@ -12,8 +12,8 @@ const Home = (props) => {
 
   return (
    <div id='nav-container'>
-    <Products />
 
+    <Retro />
    </div>
   );
 };
