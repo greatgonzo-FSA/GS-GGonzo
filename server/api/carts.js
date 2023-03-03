@@ -1,4 +1,3 @@
-
 // REMEMBER ---  users logged in and guest users
 const router = require('express').Router();
 const { Cart, Android, Iphone, Retro, CartItem } = require('../db/models');
@@ -8,7 +7,6 @@ router.get('/', async (req, res, next) => {
   try {
     let cart;
     if (req.user) {
-      // Get cart for logged in user
       cart = await Cart.findOne({
         where: {
           userId: req.user.id,
@@ -27,7 +25,7 @@ router.get('/', async (req, res, next) => {
         },
       });
     } else {
-// Get cart for guest user
+      // Get cart for guest user
       cart = await Cart.findByPk(req.session.cartId, {
         include: {
           model: [Android, Iphone, Retro],
@@ -48,13 +46,11 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-
 // Add product to cart
 router.post('/', async (req, res, next) => {
   try {
     let cart;
     if (req.user) {
-// Get cart for logged in user
       cart = await Cart.findOne({
         where: {
           userId: req.user.id,
@@ -62,7 +58,6 @@ router.post('/', async (req, res, next) => {
         },
       });
     } else {
-// Get cart for guest user
       cart = await Cart.findByPk(req.session.cartId);
       if (!cart) {
 // Create new cart for guest user if it doesn't exist
@@ -92,13 +87,10 @@ router.post('/', async (req, res, next) => {
 });
 
 
-/*  WORK IN PROGRESS ****
-
 // Remove product from cart
 router.delete('/', async (req, res, next) => {
     let cart;
     if (req.user) {
-// Get cart for logged in user
       cart = await Cart.findOne({
         where: {
           userId: req.user.id,
@@ -117,5 +109,5 @@ router.delete('/', async (req, res, next) => {
       product = await Iphone.findByPk(productId);
     } else if (req.body.productType === 'retro') {
       product = await Retro.findByPk(productId);
-    })
-*/
+    }
+  });

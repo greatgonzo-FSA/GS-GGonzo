@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import allIphonesSlice  from '../slices/iphoneSlice';
 import authReducer from '../slices/loginSlice';
-import allProductsSlice from '../slices/productSlice';
 import cartSlice from '../slices/cartSlice';
 import singleIphoneSlice from '../slices/singleIphoneSlice';
 import allAndroidsSlice from '../slices/androidSlice';

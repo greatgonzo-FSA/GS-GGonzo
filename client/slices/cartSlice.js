@@ -1,29 +1,28 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-/*
+
 
 export const fetchCart = createAsyncThunk('cart/fetchCart', async () => {
   const response = await axios.get('/api/cart');
   return response.data;
 });
 
-export const addToCart = createAsyncThunk('cart/addToCart', async (product) => {
-  const response = await axios.post('/api/cart', product);
-  return response.data;
-});
+// export const addToCart = createAsyncThunk('cart/addToCart', async (product) => {
+//   const response = await axios.post('/api/cart', product);
+//   return response.data;
+// });
 
-export const removeFromCart = createAsyncThunk('cart/removeFromCart', async (product) => {
-  const response = await axios.delete('/api/cart', { data: product });
-  return response.data;
-});
+// export const removeFromCart = createAsyncThunk('cart/removeFromCart', async (product) => {
+//   const response = await axios.delete('/api/cart', { data: product });
+//   return response.data;
+// });
 
 export const clearCart = createAsyncThunk('cart/clearCart', async () => {
   const response = await axios.delete('/api/cart');
   return response.data;
 });
 
-*/
 
 export const cartSlice = createSlice({
   name: 'cart',
@@ -32,34 +31,34 @@ export const cartSlice = createSlice({
     total: 0,
   },
   reducers: {
-    addToCart: (state, action) => {
-      const { productId, productType, price, quantity } = action.payload;
-      const existingCartItemIndex = state.cartItems.findIndex(
-        (item) => item.productId === productId && item.productType === productType
-      );
-      if (existingCartItemIndex !== -1) {
-        state.cartItems[existingCartItemIndex].quantity += quantity;
-      } else {
-        state.cartItems.push({ productId, productType, price, quantity });
-      }
-      state.total += price * quantity;
-    },
-    removeFromCart: (state, action) => {
-      const { productId, productType, price, quantity } = action.payload;
-      const existingCartItemIndex = state.cartItems.findIndex(
-        (item) => item.productId === productId && item.productType === productType
-      );
-      if (existingCartItemIndex !== -1) {
-        const existingCartItem = state.cartItems[existingCartItemIndex];
-        if (existingCartItem.quantity > quantity) {
-          existingCartItem.quantity -= quantity;
-          state.total -= price * quantity;
-        } else {
-          state.total -= price * existingCartItem.quantity;
-          state.cartItems.splice(existingCartItemIndex, 1);
-        }
-      }
-    },
+    // addToCart: (state, action) => {
+    //   const { productId, productType, price, quantity } = action.payload;
+    //   const existingCartItemIndex = state.cartItems.findIndex(
+    //     (item) => item.productId === productId && item.productType === productType
+    //   );
+    //   if (existingCartItemIndex !== -1) {
+    //     state.cartItems[existingCartItemIndex].quantity += quantity;
+    //   } else {
+    //     state.cartItems.push({ productId, productType, price, quantity });
+    //   }
+    //   state.total += price * quantity;
+    // },
+    // removeFromCart: (state, action) => {
+    //   const { productId, productType, price, quantity } = action.payload;
+    //   const existingCartItemIndex = state.cartItems.findIndex(
+    //     (item) => item.productId === productId && item.productType === productType
+    //   );
+    //   if (existingCartItemIndex !== -1) {
+    //     const existingCartItem = state.cartItems[existingCartItemIndex];
+    //     if (existingCartItem.quantity > quantity) {
+    //       existingCartItem.quantity -= quantity;
+    //       state.total -= price * quantity;
+    //     } else {
+    //       state.total -= price * existingCartItem.quantity;
+    //       state.cartItems.splice(existingCartItemIndex, 1);
+    //     }
+    //   }
+    // },
     clearCart: (state) => {
       state.cartItems = [];
       state.total = 0;
@@ -108,6 +107,5 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
-
+// export { addToCart, removeFromCart, clearCart };
 export default cartSlice.reducer;

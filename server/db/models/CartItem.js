@@ -1,20 +1,25 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const Android = require('./Android');
-const iPhone = require('./iPhone');
-const Retro = require('./Retro');
 const Cart = require('./Cart');
 
-const CartItem = db.define('cart_item', {
+const Android = require('./Android');
+const Iphone = require('./Iphone');
+const Retro = require('./Retro');
+
+const CartItem = db.define('cartitem', {
   quantity: {
     type: Sequelize.INTEGER,
     defaultValue: 1,
   },
+  productType: {
+    type: Sequelize.ENUM('Android', 'Iphone', 'Retro'),
+    allowNull: false,
+  },
+  productId: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
 });
-
-// CartItem.belongsTo(Android);
-// CartItem.belongsTo(iPhone);
-// CartItem.belongsTo(Retro);
 
 // Android.belongsToMany(Cart, { through: CartItem });
 // iPhone.belongsToMany(Cart, { through: CartItem });
@@ -23,13 +28,25 @@ const CartItem = db.define('cart_item', {
 // Cart.belongsToMany(iPhone, { through: CartItem });
 // Cart.belongsToMany(Retro, { through: CartItem });
 
+// THINK: cart items belongs to cart , cart has many cartItems
+
+// CartItem.belongsTo(Cart);
+// CartItem.belongsTo(Android, { foreignKey: 'productId', constraints: false, scope: { productType: 'Android' }});
+// CartItem.belongsTo(Iphone, { foreignKey: 'productId', constraints: false, scope: { productType: 'Iphone' }});
+// CartItem.belongsTo(Retro, { foreignKey: 'productId', constraints: false, scope: { productType: 'Retro' } });
+
+
 CartItem.belongsTo(Cart);
-CartItem.belongsTo(Product);  // is product (iphone, andriod, retro) going to be BRAND or TYPE in the data?
+// CartItem.belongsTo(db.models.Android, { foreignKey: 'productId', constraints: false, scope: { productType: 'Android' }});
+// CartItem.belongsTo(db.models.Iphone, { foreignKey: 'productId', constraints: false, scope: { productType: 'Iphone' }});
+// CartItem.belongsTo(db.models.Retro, { foreignKey: 'productId', constraints: false, scope: { productType: 'Retro' } });
+CartItem.belongsTo(Android, { foreignKey: 'productId', constraints: false, scope: { productType: 'Android' }, as: 'android' });
+CartItem.belongsTo(Iphone, { foreignKey: 'productId', constraints: false, scope: { productType: 'Iphone' }, as: 'iphone' });
+CartItem.belongsTo(Retro, { foreignKey: 'productId', constraints: false, scope: { productType: 'Retro' }, as: 'retro' });
 
 Cart.hasMany(CartItem);
-Product.hasMany(CartItem);
+Android.hasMany(CartItem);
+Iphone.hasMany(CartItem);
+Retro.hasMany(CartItem);
 
 module.exports = CartItem;
-
-
-// cart items belongs to cart , cart has many cartItems

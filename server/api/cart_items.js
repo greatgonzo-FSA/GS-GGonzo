@@ -39,21 +39,25 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-/** WORK IN PROGRESS
-
 // Update cart item
 router.put('/:cartItemId', async (req, res, next) => {
   try {
     const cartItem = await CartItem.findByPk(req.params.cartItemId);
     const updatedCartItem = await cartItem.update(req.body);
     res.json(updatedCartItem);
-
+  } catch (err) {
+    next(err);
+  }
+});
 
 // Delete cart item
 router.delete('/:cartItemId', async (req, res, next) => {
   try {
     await CartItem.destroy({ where: { id: req.params.cartItemId } });
-
-**/
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

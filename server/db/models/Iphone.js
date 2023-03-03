@@ -1,6 +1,10 @@
 const Sequelize = require('sequelize')
 const db = require("../db");
 
+// const CartItem = require('./CartItem')
+// const Cart = require('./Cart');
+
+
 const Iphone = db.define("iphone", {
 
   brand: {
@@ -37,5 +41,9 @@ const Iphone = db.define("iphone", {
     defaultValue: 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   },
 });
+
+// Iphone.belongsToMany(Cart, { through: CartItem })
+// CartItem.belongsTo(Iphone)
+// Iphone.hasMany(CartItem)
 
 module.exports = Iphone
