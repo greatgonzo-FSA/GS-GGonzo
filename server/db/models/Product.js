@@ -1,9 +1,10 @@
 const Sequelize = require('sequelize')
 const db = require("../db");
 
-const Android = db.define("android", {
+const Product = db.define("iphone", {
+
   brand: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING, // ask ab this
     allowNull: false,
     validate: {
       notEmpty: true,
@@ -32,8 +33,8 @@ const Android = db.define("android", {
   },
   imageURL: {
     type: Sequelize.STRING,
-    defaultValue: 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo-2008.png'
+    defaultValue: 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
   },
 });
 
-module.exports = Android
+module.exports = Product
