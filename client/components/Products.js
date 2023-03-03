@@ -12,27 +12,18 @@ const Products = () => {
     }, [dispatch])
     console.log(products, 'these are the products')
 
-    // const selectedModel = products
-    // .map(product => product.brands)
-    // .flat()
-    // .map(brand => brand.models)
-    // .flat()
-    // .filter(model => model.id === productId)[0]
-
     return (
         <div id="products-container" className="row">
           <div id="all-products" className="column">
-            {products && products.length
-              ? products.map((product) => (
-                  <div
-                    className="list-item row"
-                    key={`All Phones: ${product.id}`}
-                  >
-                    <h1>{product.brand}</h1>
+            <div id='apple-container'>
 
-                  </div>
-                ))
-              : null}
+            </div>
+            <div id='android-container'>
+            
+            </div>
+            <div id='retro-container'>
+              
+            </div>
           </div>
         </div>
       );
