@@ -13,9 +13,9 @@ const Android = () => {
 
     console.log(products, 'these are the products')
 
-    const samsung = products.filter(product => product.brand.toLowerCase() === 'samsung' && product.model.toLowerCase().includes('Galaxy'));
-    const google = products.filter(product => product.brand.toLowerCase() === 'google' && product.model.toLowerCase().includes('Pixel'));
-    const bbkElectronics = products.filter(product => product.brand.toLowerCase() === 'bbkElectronics' && product.model.toLowerCase().includes('OnePlus'));
+    const samsung = products.filter(product => product.brand.toLowerCase() === 'samsung' && product.model.toLowerCase().includes('galaxy'));
+    const google = products.filter(product => product.brand.toLowerCase() === 'google' && product.model.toLowerCase().includes('pixel'));
+    const bbkElectronics = products.filter(product => product.brand.toLowerCase() === 'bbk electronics' && product.model.toLowerCase().includes('oneplus'));
 
     return (
         <div id="android-container" className="row">
