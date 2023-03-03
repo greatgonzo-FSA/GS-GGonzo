@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const CartItem = require('./cart_item');
-const { User } = require('./User');
+const CartItem = require('./cartItem');
+const User  = require('./User');
+const Product = require('./Product')
 
 
 
