@@ -13,6 +13,7 @@ const Home = (props) => {
   return (
    <div id='nav-container'>
     <Products />
+
    </div>
   );
 };
