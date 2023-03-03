@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Products from './Products';
+import Android from './Android';
 import Navbar from './Navbar';
 import Retro from './Retro'
 
@@ -12,8 +12,8 @@ const Home = (props) => {
 
   return (
    <div id='nav-container'>
-
     <Retro />
+    <Android />
    </div>
   );
 };

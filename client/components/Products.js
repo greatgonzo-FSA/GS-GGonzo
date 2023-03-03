@@ -10,7 +10,7 @@ const Products = () => {
     useEffect(() => {
         dispatch(fetchProductsAsync(products))
     }, [dispatch])
-  
+    console.log(products, 'these are the products')
 
     return (
         <div id="products-container" className="row">
@@ -19,7 +19,7 @@ const Products = () => {
 
             </div>
             <div id='android-container'>
-              
+
             </div>
             <div id='retro-container'>
               
