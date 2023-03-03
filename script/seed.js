@@ -49,7 +49,7 @@ async function seed() {
   //create retro 
   const retro = await Promise.all([
     Product.create({
-      brand: "modela", 
+      brand: "Motorola", 
       model: "RAZR V3",
       price: "39",
       description: "simple description to be input here about Google",
