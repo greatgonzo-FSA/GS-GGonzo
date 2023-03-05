@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import AuthForm from '../components/LoginForm';
 import Home from '../components/HomePage';
 import { me } from './store';
+import Cart from '../components/Cart';
 
 /**
  * COMPONENT
@@ -22,7 +23,8 @@ const AppRoutes = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
-          <Route to="/home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       ) : (
         <Routes>
@@ -37,6 +39,10 @@ const AppRoutes = () => {
           <Route
             path="/signup"
             element={<AuthForm name="signup" displayName="Sign Up" />}
+          />
+          <Route
+            path="/cart"
+            element={<Cart name="cart" displayName="cart" />}
           />
         </Routes>
       )}
