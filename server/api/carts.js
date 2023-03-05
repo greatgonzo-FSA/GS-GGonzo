@@ -1,7 +1,8 @@
 // REMEMBER ---  users logged in and guest users
 const router = require('express').Router();
-const cart = require('../../../Grace-Shopper-greatgonzo/server/db/models/Cart');
-const { Cart, Android, Iphone, Retro } = require('../db/models');
+const Cart = require('../db/models/Cart');
+const Product = require('../db/models/Product');
+
 
 
 
@@ -20,7 +21,7 @@ router.get('/:cartId', async (req, res, next) => {
   try {
      const cart = await Cart.findByPk(req.params.cartId,{
       include: [{
-        model: Android,
+        model: Product,
         // [Iphone, Android, Retro],
         as: "products",
         attributes: ["brand", "model", "price", "description", "imageURL"]
@@ -56,13 +57,9 @@ router.post('/', async (req, res, next) => {
     const productId = req.body.productId;
     const quantity = req.body.quantity;
     let product;
-    if (req.body.productType === 'android') {
-      product = await Android.findByPk(productId);
-    } else if (req.body.productType === 'iphone') {
-      product = await Iphone.findByPk(productId);
-    } else if (req.body.productType === 'retro') {
-      product = await Retro.findByPk(productId);
-    }
+    // if (req.body.product === 'product') {
+    product = await Product.findByPk(productId);
+    // }
 
     await cart.addProduct(product, { through: { quantity } });
 
@@ -89,11 +86,10 @@ router.delete('/', async (req, res, next) => {
     }
     const productId = req.body.productId;
     let product;
-    if (req.body.productType === 'android') {
-      product = await Android.findByPk(productId);
-    } else if (req.body.productType === 'iphone') {
-      product = await Iphone.findByPk(productId);
-    } else if (req.body.productType === 'retro') {
-      product = await Retro.findByPk(productId);
-    }
-  });
+    // if (req.body.productType === 'product') {
+      product = await Product.findByPk(productId);
+  // }
+});
+
+
+module.exports = router;
