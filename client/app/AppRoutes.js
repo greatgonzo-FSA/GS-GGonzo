@@ -12,6 +12,8 @@ import Android from '../components/Android';
 import Products from '../components/Products';
 import SingleProduct from '../components/SingleProduct';
 import Apple from '../components/Apple';
+import Retro from '../components/Retro'
+
 
 /**
  * COMPONENT
@@ -35,6 +37,7 @@ const AppRoutes = () => {
           <Route path="/singleGoogle" element={<SingleGoogle />} />
           <Route path="/singleBbk" element={<SingleBbk />} />
           <Route path="/singleSamsung" element={<SingleSamsung />} />
+          <Route path="/retro" element={<Retro />} />
           <Route path="/products" element={<Products />} />
           <Route path="/android" element={<Android />} />
           <Route path="/apple" element={<Apple />} />
@@ -64,6 +67,7 @@ const AppRoutes = () => {
           <Route path="/Products" element={<Products />} />
           <Route path="/android" element={<Android />} />
           <Route path="/apple" element={<Apple />} />
+          <Route path="/retro" element={<Retro />} />
           <Route path='/products/:productId' element={<SingleProduct />} />
         </Routes>
       )}
