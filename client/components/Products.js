@@ -17,7 +17,7 @@ const Products = () => {
         <div id="products-container" className="row">
           <div id="all-products" className="column">
             <div id='apple-container'>
-
+            <Link to="/apple">Apple</Link>
             </div>
             <div id='android-container'>
               <Link to="/android">Android</Link>

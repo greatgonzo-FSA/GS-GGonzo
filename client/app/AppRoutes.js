@@ -10,6 +10,8 @@ import SingleGoogle from '../components/SingleGoogle';
 import SingleSamsung from '../components/SingleSamsung';
 import Android from '../components/Android';
 import Products from '../components/Products';
+import SingleProduct from '../components/SingleProduct';
+import Apple from '../components/Apple';
 
 /**
  * COMPONENT
@@ -35,6 +37,8 @@ const AppRoutes = () => {
           <Route path="/singleSamsung" element={<SingleSamsung />} />
           <Route path="/products" element={<Products />} />
           <Route path="/android" element={<Android />} />
+          <Route path="/apple" element={<Apple />} />
+          <Route path='/products/:productId' element={<SingleProduct />} />
         </Routes>
       ) : (
         <Routes>
@@ -59,6 +63,8 @@ const AppRoutes = () => {
           <Route path="/singleSamsung" element={<SingleSamsung />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/android" element={<Android />} />
+          <Route path="/apple" element={<Apple />} />
+          <Route path='/products/:productId' element={<SingleProduct />} />
         </Routes>
       )}
     </div>
