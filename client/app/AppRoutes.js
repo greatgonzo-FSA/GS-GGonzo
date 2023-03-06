@@ -5,10 +5,6 @@ import AuthForm from '../components/LoginForm';
 import Home from '../components/HomePage';
 import { me } from './store';
 import Cart from '../components/Cart';
-import SingleBbk from '../components/SingleBbkElectronics';
-import SingleGoogle from '../components/SingleGoogle';
-import SingleSamsung from '../components/SingleSamsung';
-import Android from '../components/Android'
 
 /**
  * COMPONENT
@@ -29,10 +25,6 @@ const AppRoutes = () => {
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/singleSamsung" element={<SingleSamsung />} />
-          <Route path="/singleBbk" element={<SingleBbk />} />
-          <Route path="/singleGoogle" element={<SingleGoogle />} />
-          <Route path="/android" element={<Android />} />
         </Routes>
       ) : (
         <Routes>
@@ -51,22 +43,6 @@ const AppRoutes = () => {
           <Route
             path="/cart"
             element={<Cart name="cart" displayName="cart" />}
-          />
-          <Route 
-            path="/singleSamsung" 
-            element={<SingleSamsung />} 
-          />
-          <Route 
-            path="/singleBbk" 
-            element={<SingleBbk />} 
-          />
-          <Route 
-            path="/singleGoogle" 
-            element={<SingleGoogle />} 
-          />
-          <Route
-            path="/android"
-            element={<Android />}
           />
         </Routes>
       )}
