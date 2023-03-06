@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Android from "./Android";
 import { fetchProductsAsync, selectAllProducts } from "../slices/productSlice";
 
 const Products = () => {
@@ -19,14 +20,11 @@ const Products = () => {
 
             </div>
             <div id='android-container'>
-              
-            </div>
-            </div>
-            <div id='android-container'>
-
+              <Link to="/android">Android</Link>
             </div>
             <div id='retro-container'>
               
+            </div>
             </div>
           </div>
       );

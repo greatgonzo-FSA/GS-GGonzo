@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsAsync, selectAllProducts } from "../slices/productSlice";
 
+
 const Android = () => {
     const dispatch = useDispatch()
     const products = useSelector(selectAllProducts)
@@ -21,33 +22,39 @@ const Android = () => {
         <div id="android-container" className="row">
             <div id="all-samsung" className="column">
                 <div>
-                    <h2>Samsung</h2>
+                <Link to="/singleSamsung">Samsung</Link>
                     {samsung.map(samsung => (
                         <div key={samsung.id}>
                             <h3>{samsung.brand} - {samsung.model}</h3>
                             <p>{samsung.description}</p>
+                            <img src={samsung.imageURL} height={200}></img>
+                            <button onClick={() => handleAddItem(item)}>+</button>
                         </div>
                     ))}
                 </div>
             </div>
             <div id="all-google" className="column">
                 <div>
-                    <h2>Google</h2>
+                <Link to="/singleGoogle">Google</Link>
                     {google.map(google => (
                         <div key={google.id}>
                             <h3>{google.brand} - {google.model}</h3>
                             <p>{google.description}</p>
+                            <img src={google.imageURL} height={200}></img>
+                            <button onClick={() => handleAddItem(item)}>+</button>
                         </div>
                     ))}
                 </div>
             </div>
             <div id="all-bbkElectronics" className="column">
                 <div>
-                    <h2>BBK Electronics</h2>
+                <Link to="/singleBbk">BBK Electronics</Link>
                     {bbkElectronics.map(bbkElectronics => (
                         <div key={bbkElectronics.id}>
                             <h3>{bbkElectronics.brand} - {bbkElectronics.model}</h3>
                             <p>{bbkElectronics.description}</p>
+                            <img src={bbkElectronics.imageURL} height={200}></img>
+                            <button onClick={() => handleAddItem(item)}>+</button>
                         </div>
                     ))}
                 </div>
