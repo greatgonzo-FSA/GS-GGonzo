@@ -77,21 +77,22 @@ async function seed() {
         model: 'Galaxy S23 Ultra',
         price: '1380',
         description: 'simple description to be input here about Samsung',
-        imageURL: 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo-2008.png',
+        // imageURL: 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo-2008.png',
+        imageURL: 'https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Galaxy_S23_Ultra_concept_dimensions_display_specs_S23_S23_plus_drdNBC_6.jpg',
       }),
       Product.create({
         brand: 'Google',
         model: 'Pixel 7 Pro',
         price: '900',
         description: 'simple description to be input here about Google',
-        imageURL: 'https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/google-pixel-logo.jpg',
+        imageURL: 'https://www.digitaltrends.com/wp-content/uploads/2022/10/google-pixel-7-pro-review-2.jpg?p=1',
       }),
       Product.create({
         brand: 'BBK Electronics',
         model: 'OnePlus 11',
         price: '700',
         description: 'simple description to be input here about BBK Electronics',
-        imageURL: 'https://assets.mspimages.in/wp-content/uploads/2020/03/OnePlus-New-Logo.jpg',
+        imageURL: 'https://www.oneplus.com/content/dam/oasis/product-asset-library/salami/en/images-kv-mo-1.png.webp',
       }),
   ]);
 
