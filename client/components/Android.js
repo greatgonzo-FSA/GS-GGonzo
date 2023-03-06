@@ -22,43 +22,45 @@ const Android = () => {
         <div id="android-container" className="row">
             <div id="all-samsung" className="column">
                 <div>
-                <Link to="/singleSamsung">Samsung</Link>
+                <h2>Samsung</h2>
                     {samsung.map(samsung => (
                         <div key={samsung.id}>
                             <h3>{samsung.brand} - {samsung.model}</h3>
                             <p>{samsung.description}</p>
-                            <img src={samsung.imageURL} height={200}></img>
-                            <button onClick={() => handleAddItem(item)}>+</button>
+                            <Link
+                                to={`/products/${samsung.id}`}
+                                key={`All Students: ${samsung.id}`}
+                            > <img src={samsung.imageURL} height={200}></img></Link>
                         </div>
                     ))}
                 </div>
             </div>
             <div id="all-google" className="column">
                 <div>
-                <Link to="/singleGoogle">Google</Link>
+                <h2>Google</h2>
                     {google.map(google => (
                         <div key={google.id}>
                             <h3>{google.brand} - {google.model}</h3>
                             <p>{google.description}</p>
-                            <img src={google.imageURL} height={200}></img>
-                            <button onClick={() => handleAddItem(item)}>+</button>
+                            <Link
+                                to={`/products/${google.id}`}
+                                key={`All Students: ${google.id}`}
+                            > <img src={google.imageURL} height={200}></img></Link>
                         </div>
                     ))}
                 </div>
             </div>
-            <div id="all-bbkElectronics" className="column">
-                <div>
-                <Link to="/singleBbk">BBK Electronics</Link>
+            <h2>BBK Electronics</h2>
                     {bbkElectronics.map(bbkElectronics => (
                         <div key={bbkElectronics.id}>
                             <h3>{bbkElectronics.brand} - {bbkElectronics.model}</h3>
                             <p>{bbkElectronics.description}</p>
-                            <img src={bbkElectronics.imageURL} height={200}></img>
-                            <button onClick={() => handleAddItem(item)}>+</button>
+                            <Link
+                                to={`/products/${bbkElectronics.id}`}
+                                key={`All Students: ${bbkElectronics.id}`}
+                            > <img src={bbkElectronics.imageURL} height={200}></img></Link>
                         </div>
                     ))}
-                </div>
-            </div>
         </div>
     );
 };
