@@ -22,6 +22,9 @@ const SingleBbk = () => {
                     <h2>BBK Electronics</h2>
                     {bbkElectronics.map(bbkElectronics => (
                         <div key={bbkElectronics.id}>
+                            <Link to="/products">
+                                Return to Products
+                            </Link>
                             <img src={bbkElectronics.imageURL} height={200}></img>
                             <h3>{bbkElectronics.brand} - {bbkElectronics.model}</h3>
                             <p>{bbkElectronics.description}</p>                            

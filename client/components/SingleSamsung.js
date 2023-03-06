@@ -22,6 +22,9 @@ const SingleSamsung = () => {
                     <h2>Samsung</h2>
                     {samsung.map(samsung => (
                         <div key={samsung.id}>
+                            <Link to="/products">
+                                Return to Products
+                            </Link>
                             <img src={samsung.imageURL} height={200}></img>
                             <h3>{samsung.brand} - {samsung.model}</h3>
                             <p>{samsung.description}</p>

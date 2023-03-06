@@ -22,6 +22,9 @@ const SingleGoogle = () => {
                     <h2>Google</h2>
                     {google.map(google => (
                         <div key={google.id}>
+                            <Link to="/products">
+                                Return to Products
+                            </Link>
                             <img src={google.imageURL} height={200}></img>
                             <h3>{google.brand} - {google.model}</h3>
                             <p>{google.description}</p>                            

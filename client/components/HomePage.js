@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Product from './Product';
+import Products from './Products';
 
 /**
  * COMPONENT
@@ -10,7 +10,7 @@ const Home = (props) => {
 
   return (
    <div id='nav-container'>
-    <Product />
+    <Products />
    </div>
   );
 };
