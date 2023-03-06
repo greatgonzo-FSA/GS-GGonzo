@@ -8,7 +8,7 @@ const SingleProduct = () => {
     const dispatch = useDispatch()
     const { productId } = useParams()
     const singleProduct = useSelector((state) => selectSingleProduct(state, productId))
-    const { brand ,model, price, description, imageUrl } = singleProduct
+    const { brand ,model, price, description, imageURL } = singleProduct
 
     useEffect(() => {
         dispatch(fetchSingleProductAsync(productId))
@@ -17,8 +17,11 @@ const SingleProduct = () => {
 
     return (
         <div id='single-product'>
+            <img src={imageURL} height={200}></img>
             <h2>{model}</h2>
+            <h3>${price}</h3>
             <p>{description}</p>
+            <button onClick={() => handleAddItem(item)}>+</button>
         </div>
     )
 }
