@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <h1>FS-App-Template</h1>
+      <h1>Leeroy Jenkins Phone-Matics: LET'S DO THIS!</h1>
       <nav>
         {isLoggedIn ? (
           <div>
@@ -40,6 +40,7 @@ const Navbar = () => {
         ) : (
           <div>
             {/* The navbar will show these links before you log in */}
+            <Link to="/home">Home</Link>
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
             <Link to="/cart" onClick={() => navigate('/cart')}>
