@@ -84,14 +84,14 @@ async function seed() {
         model: 'Pixel 7 Pro',
         price: '900',
         description: 'simple description to be input here about Google',
-        imageURL: 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo-2008.png',
+        imageURL: 'https://static1.xdaimages.com/wordpress/wp-content/uploads/2020/05/google-pixel-logo.jpg',
       }),
       Product.create({
         brand: 'BBK Electronics',
         model: 'OnePlus 11',
         price: '700',
         description: 'simple description to be input here about BBK Electronics',
-        imageURL: 'https://1000logos.net/wp-content/uploads/2016/10/Android-Logo-2008.png',
+        imageURL: 'https://assets.mspimages.in/wp-content/uploads/2020/03/OnePlus-New-Logo.jpg',
       }),
   ]);
 
