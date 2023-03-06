@@ -20,7 +20,7 @@ const Products = () => {
 
             </div>
             <div id='android-container'>
-              <Android />
+              <Link to="/android">Android</Link>
             </div>
             <div id='retro-container'>
               

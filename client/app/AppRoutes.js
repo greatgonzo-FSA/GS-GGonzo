@@ -8,6 +8,7 @@ import Cart from '../components/Cart';
 import SingleBbk from '../components/SingleBbkElectronics';
 import SingleGoogle from '../components/SingleGoogle';
 import SingleSamsung from '../components/SingleSamsung';
+import Android from '../components/Android';
 import Products from '../components/Products';
 
 /**
@@ -32,7 +33,8 @@ const AppRoutes = () => {
           <Route path="/singleGoogle" element={<SingleGoogle />} />
           <Route path="/singleBbk" element={<SingleBbk />} />
           <Route path="/singleSamsung" element={<SingleSamsung />} />
-          <Route path="/Products" element={<Products />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/android" element={<Android />} />
         </Routes>
       ) : (
         <Routes>
@@ -56,6 +58,7 @@ const AppRoutes = () => {
           <Route path="/singleBbk" element={<SingleBbk />} />
           <Route path="/singleSamsung" element={<SingleSamsung />} />
           <Route path="/Products" element={<Products />} />
+          <Route path="/android" element={<Android />} />
         </Routes>
       )}
     </div>
