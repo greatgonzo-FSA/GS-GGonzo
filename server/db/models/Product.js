@@ -37,4 +37,7 @@ const Product = db.define("iphone", {
   },
 });
 
+
+
+
 module.exports = Product
