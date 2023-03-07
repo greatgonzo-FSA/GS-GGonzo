@@ -1,13 +1,16 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { logout, cart } from '../app/store';
-import { cartSlice, fetchCart } from '../slices/cartSlice';
+import { logout } from '../app/store';
+
 
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const cartItemsCount = useSelector((state) => state.cart.items.length);
+  const cartItemsCount = useSelector((state) =>
+  state.cart.items.reduce((total, item) => total + item.quantity, 0)
+);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {

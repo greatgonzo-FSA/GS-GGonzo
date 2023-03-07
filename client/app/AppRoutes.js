@@ -5,9 +5,12 @@ import AuthForm from '../components/LoginForm';
 import Home from '../components/HomePage';
 import { me } from './store';
 import Cart from '../components/Cart';
+import UserProfile from '../components/UserProfile';
+import Android from '../components/Android';
 import Products from '../components/Products';
 import SingleProduct from '../components/SingleProduct';
-import UserProfile from '../components/UserProfile';
+import Apple from '../components/Apple';
+import Retro from '../components/Retro'
 
 /**
  * COMPONENT
@@ -28,9 +31,12 @@ const AppRoutes = () => {
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<SingleProduct />} /> // add new route for SingleProduct component
           <Route path="/user" element={<UserProfile />} />
+          <Route path="/retro" element={<Retro />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/android" element={<Android />} />
+          <Route path="/apple" element={<Apple />} />
+          <Route path='/products/:productId' element={<SingleProduct />} />
         </Routes>
       ) : (
         <Routes>
@@ -44,13 +50,14 @@ const AppRoutes = () => {
           <Route
             path="/signup"element={<AuthForm name="signup" displayName="Sign Up" />}/>
           <Route
-            path="/cart"element={<Cart name="cart" displayName="cart" />}/>
-          <Route 
-          path="/products" element={<Products />} />
-          <Route 
-          path="/products/:id" element={<SingleProduct />} />
+           path="/cart"element={<Cart name="cart" displayName="cart" />}/>
           <Route 
           path="/user" element={<UserProfile />} />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/android" element={<Android />} />
+          <Route path="/apple" element={<Apple />} />
+          <Route path="/retro" element={<Retro />} />
+          <Route path='/products/:productId' element={<SingleProduct />} />
         </Routes>
       )}
     </div>

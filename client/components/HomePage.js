@@ -4,35 +4,14 @@ import Apple from './Apple';
 import Android from './Android';
 import Navbar from './Navbar';
 import Retro from './Retro'
-import Products from './Products';
 import { Link, Route, Routes } from 'react-router-dom';
-// import Product from '../../server/db/models/Product';
+import Products from './Products';
 
 /**
  * COMPONENT
  */
 const Home = (props) => {
   const username = useSelector((state) => state.auth.me.username);
-
-//   return (
-//     <div>
-//       <div id="home-container">
-//         {/* <Product /> */}
-//         <Apple />
-//       </div>
-
-//       <div id="home-container">
-//         {/* <Product /> */}
-//         <Android />
-//       </div>
-
-//       <div id="home-container">
-//         {/* <Product /> */}
-//         <Retro />
-//       </div>
-//     </div>
-//   );
-// };
 
 return (
   <div>
@@ -88,6 +67,7 @@ return (
     </Routes>
   </div>
 );
+
 };
 
 export default Home;

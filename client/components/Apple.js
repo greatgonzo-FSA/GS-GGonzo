@@ -19,11 +19,16 @@ const Apple = () => {
         <div id="apple-container" className="row">
             <div id="all-iphones" className="column">
                 <div>
+
                     <h2>Apple iPhones</h2>
                     {apple.map(apple => (
                         <div key={apple.id}>
                             <h3>{apple.brand} - {apple.model}</h3>
                             <p>{apple.description}</p>
+                            <Link
+                                to={`/products/${apple.id}`}
+                                key={`All Students: ${apple.id}`}
+                            > <img src={apple.imageURL} height={200}></img></Link>
                         </div>
                     ))}
                 </div>

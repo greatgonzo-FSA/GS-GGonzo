@@ -1,75 +1,44 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from "@reduxjs/toolkit";
 
-
-export const fetchCart = createAsyncThunk('cart/fetchCart', async () => {
-  const response = await axios.get('/api/carts');
-  console.log(response.data,"fetch cart")
-
-  return response.data;
-});
-
-export const addToCart = createAsyncThunk('cart/addToCart', async (product) => {
-  const response = await axios.post('/api/carts', product);
-  console.log(response.data,"add 2 cart")
-  return response.data;
-});
-
-export const removeFromCart = createAsyncThunk('cart/removeFromCart', async (product) => {
-  const response = await axios.delete('/api/carts', { data: product });
-  console.log(response.data,"remove cart")
-
-  return response.data;
-});
-
-export const clearCart = createAsyncThunk('cart/clearCart', async () => {
-  const response = await axios.delete('/api/carts');
-  console.log(response.data, "clear cart")
-  return response.data;
-});
-
-
-
-export const cartSlice = createSlice({
-  name: 'cart',
+const cartSlice = createSlice({
+  name: "cart",
   initialState: {
     items: [],
     total: 0,
   },
   reducers: {
-    addItem: (state, action) => {
-      const { id, name, price, quantity } = action.payload;
-      const existingItemIndex  = state.items.findIndex(item => item.id === id);
-      if (existingItemIndex !== -1) {
-        state.items[existingItemIndex].quantity++;
+    addToCart(state, action) {
+      const product = action.payload;
+      const itemIndex = state.items.findIndex((item) => item.id === product.id);
+      if (itemIndex >= 0) {
+        state.items[itemIndex].quantity++;
       } else {
-        state.items.push({ id, name, price, quantity: 1 });
+        state.items.push({ ...product, quantity: 1 });
       }
-      state.total += price * quantity;
+      state.total += product.price;
     },
-    removeItem: (state, action) => {
-      const { id, price, quantity } = action.payload;
-      const existingItemIndex = state.items.findIndex(item => item.id === id);
-      if (existingItemIndex !== -1) {
-        const existingItem = state.items[existingItemIndex];
-        if (existingItem.quantity > quantity) {
-          existingItem.quantity -= quantity;
-          state.total -= price * quantity;
-
+    removeFromCart(state, action) {
+      const productId = action.payload;
+      const itemIndex = state.items.findIndex(item => item.id === productId);
+      if (itemIndex >= 0) {
+        const item = state.items[itemIndex];
+        if (item.quantity === 1) {
+          state.total -= item.price;
+          state.items.splice(itemIndex, 1);
         } else {
-          state.total -= price * existingItem.quantity;
-          state.items.splice(existingItemIndex, 1);
+          state.total -= item.price;
+          item.quantity -= 1;
         }
       }
     },
-    clearCart: (state) => {
+    
+    clearCart(state) {
       state.items = [];
       state.total = 0;
     },
   },
-  extraReducers: {},
 });
 
-// export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

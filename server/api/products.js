@@ -10,9 +10,9 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:productId", async (req, res, next) => {
   try {
-    const productId = await Product.findByPk(req.params.id);
+    const productId = await Product.findByPk(req.params.productId);
     res.json(productId);
   } catch (err) {
     next(err);

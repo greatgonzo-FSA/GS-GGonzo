@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Android from "./Android";
 import { fetchProductsAsync, selectAllProducts } from "../slices/productSlice";
 
 const Products = () => {
@@ -10,7 +11,7 @@ const Products = () => {
     useEffect(() => {
         dispatch(fetchProductsAsync(products))
     }, [dispatch])
-    console.log(products, 'these are the products')
+
 
    return (
         <div id="products-container" className="row">
