@@ -13,7 +13,7 @@ const Products = () => {
     }, [dispatch])
 
 
-    return (
+   return (
         <div id="products-container" className="row">
           <div id="all-products" className="column">
             <div id='apple-container'>
