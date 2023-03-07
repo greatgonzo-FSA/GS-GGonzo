@@ -1,32 +1,34 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// Action Types
+const FETCH_SINGLE_PRODUCT_SUCCESS = "FETCH_SINGLE_PRODUCT_SUCCESS";
 
+// Action Creator
+export const fetchSingleProductSuccess = (product) => ({ type: FETCH_SINGLE_PRODUCT_SUCCESS, payload: product });
 
-export const fetchSingleProductAsync = createAsyncThunk(
-  "singleProduct",
-  async (id) => {
-    try {
-      const { data } = await axios.get(`http://localhost:8080/api/products/${id}`);
-      console.log(data, "DATTTAAAAAA");
-      return data;
-    } catch (err) {
-      console.log(err);
-    }
+// Thunk Action Creator
+export const fetchSingleProduct = (id) => async (dispatch) => {
+  try {
+    const { data } = await axios.get(`http://localhost:8080/api/products/${id}`);
+    dispatch(fetchSingleProductSuccess(data));
+  } catch (err) {
+    console.log(err);
   }
-);
+};
 
-const singleProductSlice = createSlice({
-    name: "singleProduct",
-    initialState: {},
-    reducers: {},
-    extraReducers: (builder) => {
-      builder.addCase(fetchSingleProductAsync.fulfilled, (state, action) => {
-        return action.payload;
-      });
-    },
-  });
-  
-  export const selectSingleProduct = (state) =>  state.singleProduct;
-  
-  export default singleProductSlice.reducer;
+// Reducer
+const initialState = {};
+
+const singleProductReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_SINGLE_PRODUCT_SUCCESS:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+export default singleProductReducer;
+
+// Selector
+export const selectSingleProduct = (state) => state.singleProduct;

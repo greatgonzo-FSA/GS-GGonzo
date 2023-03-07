@@ -11,7 +11,7 @@ const Products = () => {
     useEffect(() => {
         dispatch(fetchProductsAsync(products))
     }, [dispatch])
-    console.log(products, 'these are the products')
+
 
     return (
         <div id="products-container" className="row">
